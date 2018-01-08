@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      {{title}}
+  </div>
+  <div class="col-md-12" style="margin-top: 20px;">
+      <form novalidate [formGroup]="productForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+              <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" formControlName="name">
+              </div>
+
+              <div class="form-group">
+                  <label>Description</label>
+                  <input type="text" class="form-control" formControlName="description">
+              </div>
+              <div class="form-group">
+                  <label>Minimum Price</label>
+                  <input type="number" class="form-control" formControlName="minPrice">
+              </div>
+              <div class="form-group">
+                  <label>Maximun Price</label>
+                  <input type="number" class="form-control" formControlName="maxPrice">
+              </div>
+          </fieldset>
+
+
+          <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Submit</button>
+          <button type="button" class="btn btn-warning" (click)="redirectProductPage()">Cancel</button>
+      </form>
+
+  </div>

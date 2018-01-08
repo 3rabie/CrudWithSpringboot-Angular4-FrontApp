@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{title}}
+  </div>
+  <div class="col-md-12" style="margin-top: 20px;">
+    <form novalidate [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <label>Type</label>
+          <input type="text" class="form-control" formControlName="type">
+        </div>
+        <div class="form-group">
+          <label>Product Name</label>
+          <select class="form-control" name="product" formControlName="productName">
+            <option *ngFor="let product of products" [ngValue]="product.id">
+              {{product.name}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Operator Name</label>
+          <select class="form-control" name="operator" formControlName="operatorName">
+            <option *ngFor="let operator of operators" [ngValue]="operator.id">
+              {{operator.name}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Operator Package ID</label>
+          <input type="text" class="form-control" formControlName="OperatorPackID">
+        </div>
+        <div class="form-group">
+          <label>Operator Service ID</label>
+          <input type="text" class="form-control" formControlName="OperatorServID">
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn-primary" [disabled]="!serviceForm.valid">Submit</button>
+      <button type="button" class="btn btn-warning" (click)="redirectServicePage()">Cancel</button>
+    </form>
+
+  </div>
+</div>
